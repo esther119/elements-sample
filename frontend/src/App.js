@@ -10,13 +10,18 @@ import Quiz from "./components/Quiz";
 import AboutPage from "./AboutPage";
 import Contact from "./components/Contact";
 import SelfieComponent from "./components/SelfieComponent";
+import Pie from "./components/Pie";
+import Patriachy from "./components/Patriachy";
+import Breath from "./components/Breath";
+import MindfulnessStart from "./components/MindfulnessStart";
+import Unheard from "./components/Unheard";
 // import SwipeableComponent from "./SwipeableComponent";
 
 const App = () => {
   return (
     <Router>
       <div>
-        <nav>
+        {/* <nav>
           <ul>
             <li>
               <Link to="/">Nothing</Link>
@@ -37,7 +42,7 @@ const App = () => {
               <Link to="/selfie">Selfie</Link>
             </li>
           </ul>
-        </nav>
+        </nav> */}
         <Routes>
           <Route path="/" exact element={<StrongConfidentComponent />} />
           <Route path="/home" element={<Home />} />
@@ -45,6 +50,11 @@ const App = () => {
           <Route path="/contact" element={<Contact />} />
           <Route path="/quiz" element={<Quiz />} />
           <Route path="/selfie" element={<SelfieComponent />} />
+          <Route path="/pie" element={<Pie />} />
+          <Route path="/patriachy" element={<Patriachy />} />
+          <Route path="/breath" element={<Breath />} />
+          <Route path="/mindfulness" element={<MindfulnessStart />} />
+          <Route path="/unheard" element={<Unheard />} />
         </Routes>
       </div>
     </Router>

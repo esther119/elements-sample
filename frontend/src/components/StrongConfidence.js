@@ -2,7 +2,8 @@ import React from "react";
 import { useSwipeNavigation } from "../useSwipeNavigation";
 
 function StrongConfidentComponent() {
-  const { swipeHandlers } = useSwipeNavigation("/contact", "/home");
+  const { swipeHandlers } = useSwipeNavigation("/quiz", "");
+
   return (
     <div
       {...swipeHandlers} // Spread the swipe handlers onto your main div
@@ -16,7 +17,7 @@ function StrongConfidentComponent() {
             className="rounded-lg shadow-md mb-4"
           />
 
-          <p className="text-center text-purple-700 font-semibold text-lg mb-2">
+          <p className="text-center text-purple-700 font-semibold text-3xl mb-2">
             ✨ strong & confident <br></br>
             female in tech
           </p>
