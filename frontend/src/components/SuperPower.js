@@ -10,6 +10,8 @@ const SuperPower = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [apiResponse, setApiResponse] = useState(null);
   const typingAudio = new Audio("/typewriter.mp3");
+  // holder
+  const [testImageUrl, setTestImageUrl] = useState("");
 
   const handleChange = (event) => {
     setTextValue(event.target.value);
@@ -27,29 +29,45 @@ const SuperPower = () => {
     });
   }, []);
 
+  const imageArray = ["1.png", "2.png", "3.png", "4.png"];
   const handleSubmit = async (event) => {
     event.preventDefault();
     setIsLoading(true);
-    // Here you would replace 'YOUR_API_ENDPOINT' with the actual endpoint and set up the request as needed
-    try {
-      const response = await fetch(
-        "http://localhost:3000/generate-chat-and-image",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ textValue }),
-        }
-      );
-      const data = await response.json();
-      console.log("ai output", data);
-      setApiResponse(data);
-    } catch (error) {
-      console.error("There was an error!", error);
-    }
-    setIsLoading(false);
+    const randomIndex = Math.floor(Math.random() * imageArray.length);
+    const randomImage = imageArray[randomIndex];
+    // setTestImageUrl(`/public/examples/${randomImage}`);
+    console.log("sample image", `./examples/${randomImage}`);
+    // Wait for 3 seconds before proceeding
+    setTimeout(() => {
+      // After waiting, set isLoading back to false
+      setIsLoading(false);
+      setApiResponse(`./examples/${randomImage}`);
+    }, 10000); // 3000 milliseconds = 3 seconds
   };
+
+  // const handleSubmit = async (event) => {
+  //   event.preventDefault();
+  //   setIsLoading(true);
+  //   // Here you would replace 'YOUR_API_ENDPOINT' with the actual endpoint and set up the request as needed
+  //   try {
+  //     const response = await fetch(
+  //       "http://localhost:3000/generate-chat-and-image",
+  //       {
+  //         method: "POST",
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //         },
+  //         body: JSON.stringify({ textValue }),
+  //       }
+  //     );
+  //     const data = await response.json();
+  //     console.log("ai output", data);
+  //     setApiResponse(data);
+  //   } catch (error) {
+  //     console.error("There was an error!", error);
+  //   }
+  //   setIsLoading(false);
+  // };
 
   const { swipeHandlers } = useSwipeNavigation(
     "/manifesto",

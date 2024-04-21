@@ -2,7 +2,7 @@ import React from "react";
 import { useSwipeNavigation } from "../useSwipeNavigation";
 
 const Leaf = () => {
-  const { swipeHandlers } = useSwipeNavigation("/", "/quiz");
+  const { swipeHandlers } = useSwipeNavigation("/", "/beautiful");
   return (
     <div
       {...swipeHandlers}
