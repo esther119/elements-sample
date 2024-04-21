@@ -2,7 +2,7 @@ import React from "react";
 import { useSwipeNavigation } from "../useSwipeNavigation";
 
 function Pie() {
-  const { swipeHandlers } = useSwipeNavigation("/mindfulness", "/quiz");
+  const { swipeHandlers } = useSwipeNavigation("/patriachy", "/quiz");
 
   return (
     <div
