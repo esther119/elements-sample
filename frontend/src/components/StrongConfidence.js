@@ -2,7 +2,7 @@ import React from "react";
 import { useSwipeNavigation } from "../useSwipeNavigation";
 
 function StrongConfidentComponent() {
-  const { swipeHandlers } = useSwipeNavigation("/quiz", "");
+  const { swipeHandlers } = useSwipeNavigation("/about", "");
 
   return (
     <div
@@ -21,7 +21,7 @@ function StrongConfidentComponent() {
             ✨ strong & confident <br></br>
             female in tech
           </p>
-          <p className="text-center text-purple-700 mb-4">(aka CPFT 101)</p>
+          <p className="text-center text-purple-700 mb-4">(aka SCFT 101)</p>
         </div>
       </div>
     </div>

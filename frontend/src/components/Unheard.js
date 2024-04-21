@@ -27,7 +27,7 @@ const Unheard = () => {
     });
   }, []);
 
-  const { swipeHandlers } = useSwipeNavigation("", "/breath");
+  const { swipeHandlers } = useSwipeNavigation("/selfie", "/breath");
 
   return (
     <div
@@ -59,41 +59,3 @@ const Unheard = () => {
 };
 
 export default Unheard;
-
-// import React, { useState } from "react";
-// import { useSwipeNavigation } from "../useSwipeNavigation";
-
-// const Unheard = () => {
-//   const [textValue, setTextValue] = useState("");
-
-//   // Function to handle changes in the text box
-//   const handleChange = (event) => {
-//     setTextValue(event.target.value);
-//   };
-//   const { swipeHandlers } = useSwipeNavigation("", "/breath");
-//   return (
-//     <div
-//       {...swipeHandlers} // Spread the swipe handlers onto your main div
-//       className="bg-purple-200 flex flex-col items-center justify-center p-6 min-h-screen"
-//     >
-//       <div>
-//         <p className="text-center text-purple-700 font-semibold text-xl mb-2 font-sans">
-//           Reflect on time when you felt unheard
-//         </p>
-//       </div>
-//       <div>
-//         <div>
-//           <input
-//             type="text"
-//             value={textValue}
-//             onChange={handleChange}
-//             // placeholder="Enter text here"
-//             className="w-full h-70vh p-3 bg-orange-100 rounded-lg "
-//           />
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Unheard;

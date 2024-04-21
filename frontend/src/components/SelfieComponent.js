@@ -1,9 +1,23 @@
 import React, { useRef, useState } from "react";
+import { useSwipeNavigation } from "../useSwipeNavigation";
+import { useNavigate } from "react-router-dom";
 
 function SelfieComponent() {
   const videoRef = useRef(null);
   const [photo, setPhoto] = useState("");
   const [stream, setStream] = useState(null);
+  const navigate = useNavigate();
+  // const { swipeHandlers } = useSwipeNavigation("/unheard", "");
+  const { swipeHandlers } = useSwipeNavigation(
+    "/self-love",
+    "/unheard",
+    { photo: photo },
+    {}
+  );
+  const lovePhoto = () => {
+    // Navigate to the next page, optionally pass the photo as state
+    navigate("/self-love", { state: { photo: photo } });
+  };
 
   const startCamera = async () => {
     try {
@@ -34,45 +48,58 @@ function SelfieComponent() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center p-6 space-y-4">
-      {!photo ? (
-        <div className="w-full max-w-xs">
-          <video
-            ref={videoRef}
-            className="w-full h-auto border rounded"
-            autoPlay
-            playsInline
-          />
+    <div
+      {...swipeHandlers} // Spread the swipe handlers onto your main div
+      className="bg-purple-200 flex flex-col items-center justify-center p-6 min-h-screen"
+    >
+      <div className="flex flex-col items-center justify-center p-6 space-y-4">
+        {!photo ? (
+          <div className="w-full max-w-xs">
+            <video
+              ref={videoRef}
+              className="w-full h-auto border rounded"
+              autoPlay
+              playsInline
+            />
+            <button
+              onClick={startCamera}
+              className="font-sans px-4 py-2 mt-2 text-white bg-blue-500 rounded hover:bg-blue-700"
+            >
+              See a pretty girl
+            </button>
+          </div>
+        ) : (
+          <div className="w-full max-w-xs">
+            <img src={photo} alt="Selfie" className="border rounded" />
+          </div>
+        )}
+
+        {stream && (
           <button
-            onClick={startCamera}
-            className="font-sans px-4 py-2 mt-2 text-white bg-blue-500 rounded hover:bg-blue-700"
+            onClick={takePhoto}
+            className="font-sans px-4 py-2 text-white bg-green-500 rounded hover:bg-green-700"
           >
-            Selfie time!
+            It's me!
           </button>
-        </div>
-      ) : (
-        <div className="w-full max-w-xs">
-          <img src={photo} alt="Selfie" className="border rounded" />
-        </div>
-      )}
+        )}
 
-      {stream && (
-        <button
-          onClick={takePhoto}
-          className="px-4 py-2 text-white bg-green-500 rounded hover:bg-green-700"
-        >
-          Take Photo
-        </button>
-      )}
-
-      {photo && (
-        <button
-          onClick={() => setPhoto("")}
-          className="px-4 py-2 text-white bg-red-500 rounded hover:bg-red-700"
-        >
-          Take Another
-        </button>
-      )}
+        {photo && (
+          <div>
+            <button
+              onClick={() => setPhoto("")}
+              className="font-sans font-sanspx-4 px-8 py-2 text-brown bg-yellow-500 rounded hover:bg-red-700 mr-1"
+            >
+              I can be prettier
+            </button>
+            <button
+              onClick={lovePhoto}
+              className="font-sans px-4 py-2 text-white bg-pink-500 rounded hover:bg-pink-700"
+            >
+              Love this!
+            </button>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

@@ -10,7 +10,7 @@ const MindfulnessStart = () => {
     >
       <div>
         <p className="text-center text-purple-700 font-semibold text-3xl mb-2 font-sans">
-          Next, we start with mindfulness.
+          So, we start with mindfulness.
         </p>
       </div>
     </div>

@@ -4,15 +4,15 @@ import { useNavigate } from "react-router-dom";
 import { useSwipeNavigation } from "../useSwipeNavigation";
 
 const JourneyComponent = () => {
-  const { swipeHandlers } = useSwipeNavigation("/quiz", "");
+  const { swipeHandlers } = useSwipeNavigation("/mindfulness", "/pie");
   const navigate = useNavigate();
 
   const handleNahClick = () => {
-    navigate("/stay-route"); // Replace with your route for 'Nah'
+    navigate("/mindfulness"); // Replace with your route for 'Nah'
   };
 
   const handleYuppyClick = () => {
-    navigate("/embark-route"); // Replace with your route for 'Yuppy!'
+    navigate("/mindfulness"); // Replace with your route for 'Yuppy!'
   };
 
   return (
@@ -20,24 +20,29 @@ const JourneyComponent = () => {
       {...swipeHandlers} // Spread the swipe handlers onto your main div
       className="bg-purple-200 flex flex-col items-center justify-center p-6 min-h-screen"
     >
-      <div className="font-sans flex h-screen justify-center items-center">
-        <div className="p-4 border border-gray-200 shadow-lg w-64 text-center bg-white rounded">
-          <div className="font-semibold mb-4">
-            Embark on journey of confidence and strength
-          </div>
-          <div className="flex justify-between ">
-            <button
-              onClick={handleNahClick}
-              className="bg-white text-blue-600 font-semibold py-2 px-4 border border-blue-600 rounded shadow flex-1"
-            >
-              Nah, stay in patriarchy
-            </button>
-            <button
-              onClick={handleYuppyClick}
-              className="bg-white text-blue-600 font-semibold py-2 px-4 border border-blue-600 rounded shadow flex-1 "
-            >
-              Yuppy!
-            </button>
+      <div>
+        <div className="font-sans flex flex-col justify-center items-center h-screen">
+          <p className="text-center text-purple-700 font-semibold text-2xl mb-4">
+            sooo.. are you ready?
+          </p>
+          <div className="p-4 border border-gray-200 shadow-lg text-center bg-white rounded w-64">
+            <div className="font-semibold mb-4">
+              Embark on a journey of confidence and strength
+            </div>
+            <div className="flex justify-between ">
+              <button
+                onClick={handleNahClick}
+                className="bg-white text-blue-600 font-semibold py-2 px-4 border border-blue-600 rounded shadow flex-1"
+              >
+                Nah, stay in patriarchy
+              </button>
+              <button
+                onClick={handleYuppyClick}
+                className="bg-white text-blue-600 font-semibold py-2 px-4 border border-blue-600 rounded shadow flex-1 "
+              >
+                Yuppy!
+              </button>
+            </div>
           </div>
         </div>
       </div>
